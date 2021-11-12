@@ -10,6 +10,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  int ninjaLevel = 0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,6 +21,15 @@ class _MyAppState extends State<MyApp> {
           backgroundColor: Colors.grey[850],
           centerTitle: true,
           title: Text('Ninja ID Card.'),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            setState(() {
+              ninjaLevel += 1;
+            });
+          },
+          child: Icon(Icons.add),
+          backgroundColor: Colors.grey[800],
         ),
         body: Padding(
           padding: EdgeInsets.fromLTRB(30, 40, 30, 0.0),
@@ -55,7 +66,7 @@ class _MyAppState extends State<MyApp> {
               ),
               SizedBox(height: 10),
               Text(
-                '8',
+                '$ninjaLevel',
                 style: TextStyle(
                     color: Colors.amberAccent[200],
                     letterSpacing: 2.0,
@@ -69,7 +80,7 @@ class _MyAppState extends State<MyApp> {
                 children: [
                   Icon(
                     Icons.email,
-                    color: Colors.grey[20],
+                    color: Colors.grey[100],
                   ),
                   SizedBox(
                     width: 10,
